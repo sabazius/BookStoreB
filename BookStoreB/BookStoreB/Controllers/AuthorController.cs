@@ -20,5 +20,23 @@ namespace BookStoreB.Controllers
         {
             return _authorService.GetAll();
         }
+
+        [HttpGet("GetById")]
+        public Author GetById(int id)
+        {
+            return _authorService.GetById(id);
+        }
+
+        [HttpPost("Add")]
+        public void Add([FromBody]Author author)
+        {
+            _authorService.AddAuthor(author);
+        }
+
+        [HttpDelete("Delete")]
+        public void Delete(int authorId)
+        {
+            _authorService.DeleteAuthor(authorId);
+        }
     }
 }
